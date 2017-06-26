@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pasapalabra</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="game">
+            <div class="box-game">
+                <div class="header">
+                    <h1>pasapalabra</h1>
+                </div>
+                <div class="points">
+                    <span class="circle blue">A</span>
+                    <span class="circle green">B</span>
+                    <span class="circle red">C</span>
+                </div>
+                <div class="start">
+                    <div class="crono">
+                        <span id="crono" class="crono-timer"></span>
+                    </div>
+                    <form>
+                        <input type="button" value="Empezar" class="btn btn-start" id="startGame">
+                    </form>
+                </div>
+                <div class="circle-of-words">
+                    <div class="pregunta">
+                        <p id="pregunta">Aqui va la pregunta</p>
+                    </div>
+                    <a href='#' class='circle deg0'><span>F</span></a>
+                    <a href='#' class='circle deg13'><span>G</span></a>
+                    <a href='#' class='circle deg27'><span>H</span></a>
+                    <a href='#' class='circle deg41'><span>I</span></a>
+                    <a href='#' class='circle deg54'><span>J</span></a>
+                    <a href='#' class='circle deg68'><span>K</span></a>
+                    <a href='#' class='circle deg82'><span>L</span></a>
+                    <a href='#' class='circle deg96'><span>M</span></a>
+                    <a href='#' class='circle deg110'><span>N</span></a>
+                    <a href='#' class='circle deg124'><span>Ñ</span></a>
+                    <a href='#' class='circle deg137'><span>O</span></a>
+                    <a href='#' class='circle deg151'><span>P</span></a>
+                    <a href='#' class='circle deg165'><span>Q</span></a>
+                    <a href='#' class='circle deg179'><span>R</span></a>
+                    <a href='#' class='circle deg193'><span>S</span></a>
+                    <a href='#' class='circle deg207'><span>T</span></a>
+                    <a href='#' class='circle deg220'><span>U</span></a>
+                    <a href='#' class='circle deg234'><span>V</span></a>
+                    <a href='#' class='circle deg248'><span>W</span></a>
+                    <a href='#' class='circle deg262'><span>X</span></a>
+                    <a href='#' class='circle deg276'><span>Y</span></a>
+                    <a href='#' class='circle deg290'><span>Z</span></a>
+                    <a href='#' class='circle deg303'><span>A</span></a>
+                    <a href='#' class='circle deg317'><span>B</span></a>
+                    <a href='#' class='circle deg331'><span>C</span></a>
+                    <a href='#' class='circle deg345'><span>D</span></a>
+                    <a href='#' class='circle deg360'><span>E</span></a>
+                </div>
+                <div class="answer">
+                    <form>
+                        <input type="text" placeholder="Escribe aquí tu respuesta" id="answer">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="data">
+            <div class="name" id="box">
+                <div class="header">
+                    <h3>Escribe tu nombre</h3>
+                </div>
+                <div class="">
+                    <input type="text" id="name" class="answer">
+                </div>
+            </div>
+            <div class="table">
+                <table id="table">
+                    <tr>
+                        <th>Posición</th>
+                        <th>Nombre</th>
+                        <th>Resultado</th>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/dynamics.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

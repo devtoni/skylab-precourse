@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+  background-image: url("../img/img.png");
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 2px solid lightblue;
+}
+
+.headerText {
+	display: inline-block;
+	position: relative;
+	top: 25%;
+	left: 50%;
+}
+
+#last li {
+  list-style-type: katakana;
+}

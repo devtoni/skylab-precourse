@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: 'Abel', sans-serif;
+}
+.container {
+    background: rgba(118, 160, 239, 1);
+    width: 65%;
+    margin: 0 auto;
+    height: 100vh;
+    padding-top: 2em;
+}
+
+.header {
+    width: 60%;
+    padding: 2em;
+    margin-top:2em;
+    background: -moz-linear-gradient(left, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #111111 60%, #2b2b2b 76%, #000000 81%, #000000 81%, #1c1c1c 91%, #131313 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #111111 60%, #2b2b2b 76%, #000000 81%, #000000 81%, #1c1c1c 91%, #131313 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #111111 60%, #2b2b2b 76%, #000000 81%, #000000 81%, #1c1c1c 91%, #131313 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.header h1, h2 {
+	color: white;
+	text-transform: uppercase;
+	font-weight: 100;
+	font-family: Times New Roman;
+}
+
+.header .golden-color {
+	color: goldenrod;
+}
+
+.header p  {
+	font-weight: bold;
+	color: white;
+}
+
+.main {
+	width: 100%;
+	margin-top: 2em;
+}
+/* Aside */
+
+.main .aside {
+  float: left;
+  width: 30%;
+  height: 100%;
+  text-align: center;
+}
+
+.main .article {
+	float: right;
+	background: white;
+    width: 65%;
+    margin-right: 2em;
+    padding: 1em;
+}
+
+.aside ul {
+	list-style: none;
+}
+
+.aside ul li {
+	color: white;
+    padding: 0.5em;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 0.7em;
+}
+
+.aside ul li:nth-child(1) {
+	background: blue;
+}
+
+.main h3, .lorem p {
+	color: blue;
+}
+
+.lorem p {
+	margin-left: 1em;
+}

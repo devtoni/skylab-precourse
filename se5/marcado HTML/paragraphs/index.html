@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Paragraphs</title>
+</head>
+
+<body>
+  <h1>Paragraphs</h1>
+  <h2><mark>Make the following example</mark></h2>
+  <img src="paragraphs.png" alt="Image for paragraphs">
+  <ol>
+    <li></li>
+    <p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit.</strong>Magni rem numquam error voluptate pariatur a, molestias sit, distinctio vel quia minima quis necessitatibus! Similique praesentium voluptate atque vero eius voluptates.</p>
+    <li></li>
+    <p>Vero, recusandac nam officciis <em>quam aut perferendis quis blanditiis</em> doloremque rem nesciunt. Vel!</p>
+    <li>
+    	
+    </li>
+    <ol>
+    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae aut voluptatibus repudiandae optio, quod et, esse voluptatem eos quam voluptates nesciunt natus. Earum non reiciendis laboriosam sequi, nesciunt veniam.</p>
+    </ol>
+   
+    <li></li>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ipsa, harum fugit similique eveniet ut asperiores quasi reiciendis quis nostrum. <u>Natus qui harum consequuntur provident</u>, ipsam voluptate earum beatae veritatis!
+    <li></li>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam blanditiis optio ratione velit illo praesentium,<mark>tempore excepturi, recusandae commodi.</mark> Illum repellat soluta consequatur culpa laboriosam magnam recusandae laudantium aliquid ducimus.</p>
+    <li></li>
+    <p><small>Lorem ipsum dolor sit amet</small>, consectetur adipisicing elit. Numquam at eos ipsam fugiat blanditiis sint similique officia deleniti, laborum provident, reprehenderit, est hic quis saepe. Accusantium rerum dolorum, nostrum nemo.</p>
+  </ol>
+</body>
+<script>
+	// funcion crear dibujo
+	function muestraDom(el) {
+		var lista = "<ul><li>" + el.nodeName + "</li>";
+		if (el.children) {
+			var mySon = el.children;
+			for (var i = 0; i < mySon.length; i++) {
+				lista += muestraDom(mySon[i]);
+			}
+		}
+		lista += "</ul>";
+		return lista;
+	}
+	var div = document.createElement("div");
+	div.className = "div";
+	document.body.appendChild(div);
+	div.innerHTML = muestraDom(document.documentElement);
+	var p = document.getElementsByTagName("p");
+	//p.forEach((son) => console.log(son.innerHTML));
+	console.log(p);
+</script>
+</html>

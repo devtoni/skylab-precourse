@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Markup</title>
+    <style type="text/css">
+    div {
+        margin-top: 1em;
+    }
+    
+    ul li ul {
+        list-style: square;
+        color: red;
+    }
+
+    h2 {
+        color: green;
+    }
+    
+    .orange {
+        color: orange;
+    }
+    
+    table, td, th {
+		border: 1px solid black;
+    }
+
+    table th {
+    	text-align: center;
+    }
+
+    label {
+    	color: red;
+    }
+   
+    .links, .links tr, .links td {
+    	border: none;
+    }
+    .links td {
+    	padding-right: 0.3em;
+		border-right: 1px solid black;
+    }
+    .links td:last-child {
+    	border: none;
+    	padding-right: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="about">
+        <h2>About</h2>
+        <p>It can be intimidating for women to learn and ask questions when they are in an <strong class="orange">extreme minority</strong>. While open and welcoming, today's budding developer community is up to <strong class="orange">91% male</strong>. If we can empower more females with the confidence in their technological capabilities <em class="orange">we can begin to change this landscape</em>.</p>
+    </div>
+    <div class="our-locations">
+        <h2>Our Locations</h2>
+        <ul>
+            <li>
+                <h3>USA</h3>
+                <ul>
+                    <li>
+                        <a href="#">New York</a>
+                    </li>
+                    <li>
+                        <a href="#">Columbus</a>
+                    </li>
+                    <li>
+                        <a href="#">Austin</a>
+                    </li>
+                    <li>
+                        <a href="#">Philly</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Australia</h3>
+                <ul>
+                    <li>
+                        <a href="#">Ottawa</a>
+                    </li>
+                    <li>
+                        <a href="#">Sydney</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="upcoming-Classes">
+        <h2>Upcoming Classes</h2>
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Topic</th>
+            </tr>
+            <tr>
+                <td>New York</td>
+                <td>JavaScript &amp; jQuery</td>
+            </tr>
+            <tr>
+                <td>San Francisco</td>
+                <td>HTML &amp; CSS</td>
+            </tr>
+        </table>
+    </div>
+    <div class="sign">
+        <h2>Sign Up!</h2>
+        <form action="">
+            <div class="user-data">
+                <label for="">Name:</label>
+                <input type="text" name="">
+                <label for="">Email:</label>
+                <input type="email" name="">
+            </div>
+            <div class="location">
+                <label for="">Location:</label>
+                <select>
+                    <option value="sanFrancisco">San Francisco</option>
+                    <option value="california">California</option>
+                    <option value="newYork">New York</option>
+                    <option value="chicago">Chicago</option>
+                </select>
+            </div>
+            <div class="gender">
+                <fieldset>
+                    <legend>Gender:</legend>
+                    <label>Female </label>
+                    <input type="radio" name="">
+                    <label>Male </label>
+                    <input type="radio" name="">
+                </fieldset>
+            </div>
+            <div class="text-area">
+                <label for="">Experience:</label>
+                <br>
+                <textarea></textarea>
+                <br>
+                <input type="submit" name="" value="Sign Up">
+            </div>
+        </form>
+        <div class="link">
+            <table class="links">
+                <tr>
+                    <td><a href="#">Twitter</a></td>
+                    <td><a href="#">Facebook</a></td>
+                    <td><a href="#">Flickr</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

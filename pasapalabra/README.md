@@ -1,6 +1,6 @@
 ### PASAPALABRA GAME
 
-Pasapalabra game is the last exercise for the pre-course of Skylab Coders Bootcamp.
+Pasapalabra game is the last exercise for the Skylab Coders Bootcamp pre-course.
 In this project we have had to apply the basics learned in the modules of Javascript, HTML and CSS.
 
 ## How it works

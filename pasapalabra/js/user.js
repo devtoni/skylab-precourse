@@ -1,26 +1,52 @@
-
-var start = document.getElementById("startGame");
-// cuando le de click a boton empezar
-start.addEventListener("click",displayName,false);
-var userData = [];
-var userName = "";
-
-function displayName() {
-	// deshabilitamos el boton empezar
-	start.removeEventListener("click",displayName,false);
-	var nameBox = document.getElementById("box");
-	var name = document.getElementById("name");
-	display(nameBox);  // mostramos caja
-    name.addEventListener("keydown", function(e) {  // cuando presionemos enter en el text input 
-    	if ( e.keyCode === 13 ) {
-    		userName = e.target.value;
-    		console.log(userName);
-    		hide(nameBox);
-    	}
-    });
-    writeQuestion();
-}
+var user = (function() {
+    "use strict";
+    var startDiv = document.getElementById("startGame");
+    var userData = [];
+    var userName = "";
+    var points = 0;
 
 
-// tendremos guardado el nombre del usuario.
+    var start = function() {
+        startDiv.addEventListener("click", displayName, false);
+    };
+
+    var displayName = function() {
+        startDiv.removeEventListener("click", displayName, false);
+        var nameBox = document.getElementById("box");
+        var name = document.getElementById("name");
+        interactions.erase(name);
+        interactions.display(nameBox);
+        interactions.foco(name); // mostramos caja
+        name.addEventListener("keydown", function(e) { // cuando presionemos enter en el text input 
+            if (e.keyCode === 13) {
+                userName = e.target.value;
+                interactions.hide(nameBox);
+                writeQuestion();
+            }
+            preventDef(e);
+        });
+    }
+    var addPoints = function() {
+        points++;
+    }
+
+    var resetPoints = function() {
+        points = 0;
+    }
+    var addResults = function() {
+        userData.push({
+            user: userName,
+            points: points
+        });
+    }
+    start();
+
+    return {
+        resetPoints: resetPoints,
+        addPoints: addPoints,
+        results: addResults,
+        userData: userData,
+        start: displayName
+    };
+})();
 

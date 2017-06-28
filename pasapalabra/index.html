@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Pasapalabra</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -15,10 +16,10 @@
                 <div class="header">
                     <h1>pasapalabra</h1>
                 </div>
-                <div class="points">
-                    <span class="circle blue">A</span>
-                    <span class="circle green">B</span>
-                    <span class="circle red">C</span>
+                <div class="points-bar">
+                    <span class="circle green" id="aciertos">0</span>
+                    <span class="circle red" id="fallos">0</span>
+                    <span class="circle blue" id="restante">27</span>
                 </div>
                 <div class="start">
                     <div class="crono">
@@ -30,35 +31,35 @@
                 </div>
                 <div class="circle-of-words">
                     <div class="pregunta">
-                        <p id="pregunta">Aqui va la pregunta</p>
+                        <p id="pregunta"></p>
                     </div>
-                    <a href='#' class='circle deg0'><span>F</span></a>
-                    <a href='#' class='circle deg13'><span>G</span></a>
-                    <a href='#' class='circle deg27'><span>H</span></a>
-                    <a href='#' class='circle deg41'><span>I</span></a>
-                    <a href='#' class='circle deg54'><span>J</span></a>
-                    <a href='#' class='circle deg68'><span>K</span></a>
-                    <a href='#' class='circle deg82'><span>L</span></a>
-                    <a href='#' class='circle deg96'><span>M</span></a>
-                    <a href='#' class='circle deg110'><span>N</span></a>
-                    <a href='#' class='circle deg124'><span>Ñ</span></a>
-                    <a href='#' class='circle deg137'><span>O</span></a>
-                    <a href='#' class='circle deg151'><span>P</span></a>
-                    <a href='#' class='circle deg165'><span>Q</span></a>
-                    <a href='#' class='circle deg179'><span>R</span></a>
-                    <a href='#' class='circle deg193'><span>S</span></a>
-                    <a href='#' class='circle deg207'><span>T</span></a>
-                    <a href='#' class='circle deg220'><span>U</span></a>
-                    <a href='#' class='circle deg234'><span>V</span></a>
-                    <a href='#' class='circle deg248'><span>W</span></a>
-                    <a href='#' class='circle deg262'><span>X</span></a>
-                    <a href='#' class='circle deg276'><span>Y</span></a>
-                    <a href='#' class='circle deg290'><span>Z</span></a>
-                    <a href='#' class='circle deg303'><span>A</span></a>
-                    <a href='#' class='circle deg317'><span>B</span></a>
-                    <a href='#' class='circle deg331'><span>C</span></a>
-                    <a href='#' class='circle deg345'><span>D</span></a>
-                    <a href='#' class='circle deg360'><span>E</span></a>
+                    <a href='#' class='circle deg0' data-letter="F"><span>F</span></a>
+                    <a href='#' class='circle deg13' data-letter="G"><span>G</span></a>
+                    <a href='#' class='circle deg27' data-letter="H"><span>H</span></a>
+                    <a href='#' class='circle deg41' data-letter="I"><span>I</span></a>
+                    <a href='#' class='circle deg54' data-letter="J"><span>J</span></a>
+                    <a href='#' class='circle deg68' data-letter="K"><span>K</span></a>
+                    <a href='#' class='circle deg82' data-letter="L"><span>L</span></a>
+                    <a href='#' class='circle deg96' data-letter="M"><span>M</span></a>
+                    <a href='#' class='circle deg110' data-letter="N"><span>N</span></a>
+                    <a href='#' class='circle deg124' data-letter=Ñ><span>Ñ</span></a>
+                    <a href='#' class='circle deg137' data-letter="O"><span>O</span></a>
+                    <a href='#' class='circle deg151' data-letter="P"><span>P</span></a>
+                    <a href='#' class='circle deg165' data-letter="Q"><span>Q</span></a>
+                    <a href='#' class='circle deg179' data-letter="R"><span>R</span></a>
+                    <a href='#' class='circle deg193' data-letter="S"><span>S</span></a>
+                    <a href='#' class='circle deg207' data-letter="T"><span>T</span></a>
+                    <a href='#' class='circle deg220' data-letter="U"><span>U</span></a>
+                    <a href='#' class='circle deg234' data-letter="V"><span>V</span></a>
+                    <a href='#' class='circle deg248' data-letter="W"><span>W</span></a>
+                    <a href='#' class='circle deg262' data-letter="X"><span>X</span></a>
+                    <a href='#' class='circle deg276' data-letter="Y"><span>Y</span></a>
+                    <a href='#' class='circle deg290' data-letter="Z"><span>Z</span></a>
+                    <a href='#' class='circle deg303' data-letter="A"><span>A</span></a>
+                    <a href='#' class='circle deg317' data-letter="B"><span>B</span></a>
+                    <a href='#' class='circle deg331' data-letter="C"><span>C</span></a>
+                    <a href='#' class='circle deg345' data-letter="D"><span>D</span></a>
+                    <a href='#' class='circle deg360' data-letter="E"><span>E</span></a>
                 </div>
                 <div class="answer">
                     <form>
@@ -73,17 +74,16 @@
                     <h3>Escribe tu nombre</h3>
                 </div>
                 <div class="">
-                    <input type="text" id="name" class="answer">
+                    <input type="text" id="name" class="answer" tabindex="-1">
                 </div>
             </div>
-            <div class="table">
+            <div class="table" id="tableBox">
                 <table id="table">
                     <tr>
                         <th>Posición</th>
                         <th>Nombre</th>
                         <th>Resultado</th>
                     </tr>
-                    
                 </table>
             </div>
         </div>

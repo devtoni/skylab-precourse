@@ -1,10 +1,10 @@
 var interactions = (function() {
-
-	var green = 0;
-	var red = 0;
-	var blue = 27;
-
     "use strict";
+    var green = 0;
+    var red = 0;
+    var blue = 27;
+
+
     var display = function(element) {
         element.style.display = "flex";
         element.style.visibility = "visible";
@@ -20,7 +20,8 @@ var interactions = (function() {
     var showTable = function() {
         var table = document.getElementById("table");
         var tableBox = document.getElementById("tableBox");
-        var userData = user.userData;
+        //var userData = user.userData;
+        var userData = sortRanking();
         for (var i = 0; i < userData.length; i++) {
             var row = table.insertRow(i + 1);
             var cell1 = row.insertCell(0);
@@ -49,14 +50,13 @@ var interactions = (function() {
         element.className = color;
     }
 
-
     var addClassLetter = function(target, color) {
         target = target.toUpperCase();
         var letters = document.querySelectorAll(".circle-of-words a");
         for (let i = 0; i < letters.length; i++) {
             var letter = letters[i];
             if (letter.dataset.letter === target) {
-            	removeClass(letter,['red','blue','green']);
+                removeClass(letter, ['red', 'blue', 'green']);
                 letter.className += " " + color;
             }
         }
@@ -72,31 +72,37 @@ var interactions = (function() {
     }
 
 
-    var uploadState = function(g,r,b) {
-    	green += g;
-    	red += r;
-    	blue -= b;
-    	writePoints();
+    var uploadState = function(g, r, b) {
+        green += g;
+        red += r;
+        blue -= b;
+        writePoints();
     }
 
     var writePoints = function() {
-    	var aciertos = document.getElementById("aciertos");
-    	aciertos.innerHTML = green;
-    	var fallos = document.getElementById("fallos");
-    	fallos.innerHTML = red;
-    	var restante = document.getElementById("restante");
-    	restante.innerHTML = blue;
+        var aciertos = document.getElementById("aciertos");
+        aciertos.innerHTML = green;
+        var fallos = document.getElementById("fallos");
+        fallos.innerHTML = red;
+        var restante = document.getElementById("restante");
+        restante.innerHTML = blue;
     }
 
     var restartPoints = function() {
-    	green = 0;
-    	red= 0;
-    	blue = 27;
-    	writePoints();
+        green = 0;
+        red = 0;
+        blue = 27;
+        writePoints();
+    }
+
+    var sortRanking = function() {
+        var ranking = user.userData; // array of users 
+        ranking.sort( (userA,userB) => userB.points > userA.points);
+        return ranking;
     }
     return {
-    	restart: restartPoints,
-    	upload: uploadState,
+        restart: restartPoints,
+        upload: uploadState,
         foco: focusElement,
         erase: eraseText,
         showTable: showTable,

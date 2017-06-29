@@ -318,11 +318,12 @@ td {
     transform: rotate(346.6deg) translate(170px) rotate(-346.6deg);
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 520px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 768px) {
     .container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
     .container > * {
         width: 90%;
@@ -345,6 +346,7 @@ td {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
     .box-game,
     .name,

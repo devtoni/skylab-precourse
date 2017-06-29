@@ -5,7 +5,7 @@ In this project we have had to apply the basics learned in the modules of Javasc
 
 ## How it works
 
-![Alt Text](http://res.cloudinary.com/drenzfi8m/image/upload/v1498711593/pasapalabra2_sv6uvl.gif)
+![Alt Text](http://res.cloudinary.com/drenzfi8m/image/upload/v1498768556/pasa.gif_rw5sb1.gif)
 
 You can test the game here -> https://devtoni.github.io/skylab-precourse/pasapalabra/
 

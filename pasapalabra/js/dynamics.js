@@ -56,6 +56,7 @@ var interactions = (function() {
         for (let i = 0; i < letters.length; i++) {
             var letter = letters[i];
             if (letter.dataset.letter === target) {
+            	removeClass(letter,['red','blue','green']);
                 letter.className += " " + color;
             }
         }

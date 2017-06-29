@@ -6,10 +6,10 @@ var sentence = 'My name has ' + myName.length + ' letters';
 console.log(sentence);
 
 // Añade tu apellido e indica en que posición se encuentra
+
 var myName = 'Toni Ruiz';
 var firstLetterLastName = 'R';
 var startPositionLastName = myName.indexOf(firstLetterLastName);
-
 console.log('Your first last name starts on position ' + startPositionLastName);
 
 //Ahora, con tu apellido y nombre en la misma variable, muestra solo el nombre.
@@ -34,18 +34,18 @@ console.log(myName + ', ' + newString);
 
 var myName = 'Toni Ruiz';
 
-function replaceName(name){
-	var lastName = name.split(' ')[1];
-	console.log('Hello, Mr. ' + lastName);
+function replaceName(name) {
+    var lastName = name.split(' ')[1];
+    console.log('Hello, Mr. ' + lastName);
 }
 replaceName(myName);
 
 //Selecciona tu apellido y transfórmalo a MAYÚSCULAS.
 
 function lastNameToUpperCase(name) {
-	var lastName = name.split(' ')[1];
-	lastName = lastName.toUpperCase();
-	console.log('My last name is ' + lastName);
+    var lastName = name.split(' ')[1];
+    lastName = lastName.toUpperCase();
+    console.log('My last name is ' + lastName);
 }
 lastNameToUpperCase('Toni Ruiz');
 
@@ -53,8 +53,8 @@ lastNameToUpperCase('Toni Ruiz');
 a la anterior variable sumándole, además, un mensaje.*/
 
 function myAwesomeName(name) {
-	var something = name + ' is awesome';
-	console.log(something);
+    var something = name + ' is awesome';
+    console.log(something);
 }
 
 myAwesomeName('Toni');
@@ -63,9 +63,9 @@ myAwesomeName('Toni');
 de tu nombre y apellido y mostrarlas por pantalla?*/
 
 function myFirstLetter(name) {
-	var firstLetterName = name.split(' ')[0][0];
-	var firstLetterLastName = name.split(' ')[1][0];
-	console.log(firstLetterName + '.' + firstLetterLastName);
+    var firstLetterName = name.split(' ')[0][0];
+    var firstLetterLastName = name.split(' ')[1][0];
+    console.log(firstLetterName + '.' + firstLetterLastName);
 }
 
 myFirstLetter('Toni Ruiz');
@@ -74,8 +74,8 @@ myFirstLetter('Toni Ruiz');
 muéstralo por pantalla separando cada letra por "/"*/
 
 function myNameinArray(name) {
-	var nameToUpper = name.toUpperCase();
-	console.log(nameToUpper.split('').join('/'));
+    var nameToUpper = name.toUpperCase();
+    console.log(nameToUpper.split('').join('/'));
 }
 
 myNameinArray('Toni Ruiz');
@@ -83,10 +83,10 @@ myNameinArray('Toni Ruiz');
 //Ahora solo selecciona tu apellido y muestra cada letra separada por "|"
 
 function slashLastName(name) {
-	var lastName = name.split(' ')[1];
-	lastName = lastName.toUpperCase();
-	var arrayToString = lastName.split('').join('|');
-	console.log(arrayToString);
+    var lastName = name.split(' ')[1];
+    lastName = lastName.toUpperCase();
+    var arrayToString = lastName.split('').join('|');
+    console.log(arrayToString);
 }
 
 slashLastName('Toni Ruiz');
@@ -95,17 +95,16 @@ slashLastName('Toni Ruiz');
 letra de tu nombre con su posición (necesitarás un bucle for)*/
 
 function positionLetterName(name) {
-	var name = name.toUpperCase();
-	var positionAndName = '';
-	for ( var i = 0; i < name.length; i++ ) {
-		if ( i == name.length - 1 ) {
-			positionAndName += i + 'º' + ' ' + name[i];
-		}
-		else {
-			positionAndName += i + 'º' +  ' ' + name[i] + ',';
-		}
-	}
-	console.log(positionAndName);
+    var name = name.toUpperCase();
+    var positionAndName = '';
+    for (var i = 0; i < name.length; i++) {
+        if (i == name.length - 1) {
+            positionAndName += i + 'º' + ' ' + name[i];
+        } else {
+            positionAndName += i + 'º' + ' ' + name[i] + ',';
+        }
+    }
+    console.log(positionAndName);
 }
 
 positionLetterName('Toni');
@@ -113,17 +112,16 @@ positionLetterName('Toni');
 //Como en el ejercicio anterior, pero seleccionando tu apellido
 
 function positionLetterLastName(name) {
-	var name = name[0].toUpperCase();
-	var positionAndName = '';
-	for ( var i = 0; i < name.length; i++ ) {
-		if ( i == name.length - 1 ) {
-			positionAndName += i + 'º' + ' ' + name[i];
-		}
-		else {
-			positionAndName += i + 'º' +  ' ' + name[i] + ', ';
-		}
-	}
-	console.log(positionAndName);
+    var name = name[0].toUpperCase();
+    var positionAndName = '';
+    for (var i = 0; i < name.length; i++) {
+        if (i == name.length - 1) {
+            positionAndName += i + 'º' + ' ' + name[i];
+        } else {
+            positionAndName += i + 'º' + ' ' + name[i] + ', ';
+        }
+    }
+    console.log(positionAndName);
 }
 
 positionLetterLastName(['Ruiz']);
@@ -133,23 +131,23 @@ positionLetterLastName(['Ruiz']);
 y apellido? Como en el ejercicio h de la sección de strings*/
 
 function firstLetterNameAndLastName(array) {
-  var firstLetterName = array[0][0];
-  var firstLetterLastName = array[1][0];
-  console.log(firstLetterName + '.' + firstLetterLastName);
+    var firstLetterName = array[0][0];
+    var firstLetterLastName = array[1][0];
+    console.log(firstLetterName + '.' + firstLetterLastName);
 }
 
-firstLetterLastName(['Toni','Ruiz']);
+firstLetterLastName(['Toni', 'Ruiz']);
 
 /*Ahora, reformula la array, introduciendo tu nombre en primera posición, tu apellido en segunda, y además añade en otra posicion tu edad. 
 Muestra por pantalla solo tu nombre y tu edad en un solo mensaje*/
 
 function showNameAndAge(array) {
-	var nameToUpper = array[0].toUpperCase();
-	var age = array[2];
-	console.log( 'My name is ' + nameToUpper + ' and I\'m ' + age + ' years old');
+    var nameToUpper = array[0].toUpperCase();
+    var age = array[2];
+    console.log('My name is ' + nameToUpper + ' and I\'m ' + age + ' years old');
 }
 
-showNameAndAge(['Toni','Ruiz',29]);
+showNameAndAge(['Toni', 'Ruiz', 29]);
 
 /*Prepara una función para añadir tu City a la array, 
 muestra un mensaje mostrando el contenido de toda la array, 
@@ -163,41 +161,41 @@ function showData(array) {
 }
 
 function addCity(city) {
-	return city;
+    return city;
 }
 
-showData(['Toni','Ruiz',29]);
+showData(['Toni', 'Ruiz', 29]);
 
 /*Crea ahora, una funcion 
 para eliminar la variable City y asegura los cambios.*/
 function myCityDelete(array) {
-	 array.pop();
-	 console.log(array);
+    array.pop();
+    console.log(array);
 }
 
 /*Quiero volver a introducir mi nombre pero si lo introduzco 
 utilizando push() estará en la última posición, 
 como podria hacer para introducirlo en la primera posición*/
 
-function addNameFirstPosition(array,name) {
-	array.splice(0,1,name);
-	return array;
+function addNameFirstPosition(array, name) {
+    array.splice(0, 1, name);
+    return array;
 }
 
-addNameFirstPosition(['Toni','Ruiz',29],'Ruben');
+addNameFirstPosition(['Toni', 'Ruiz', 29], 'Ruben');
 
 /*Ahora, declara una array con 
 los números del 0 a 10 y muestra cada número multiplicado por dos.*/
 
 function returnElementArray() {
-	var array = [];
-	for ( var i = 0; i <= 10; i++ ) {
-		array.push(i);
-	}
-	var multByTwo =  array.map(function(element) {
-		return element * 2;
-	});
-	return multByTwo;
+    var array = [];
+    for (var i = 0; i <= 10; i++) {
+        array.push(i);
+    }
+    var multByTwo = array.map(function(element) {
+        return element * 2;
+    });
+    return multByTwo;
 }
 
 returnElementArray();
@@ -206,14 +204,14 @@ returnElementArray();
 especificar por cual número debería multiplicar cada elemento de la array.*/
 
 function returnElementArray(number) {
-	var array = [];
-	for ( var i = 0; i <= 10; i++ ) {
-		array.push(i);
-	}
-	var multByNumber =  array.map(function(element) {
-		return element * number;
-	});
-	return multByNumber;
+    var array = [];
+    for (var i = 0; i <= 10; i++) {
+        array.push(i);
+    }
+    var multByNumber = array.map(function(element) {
+        return element * number;
+    });
+    return multByNumber;
 }
 
 returnElementArray(3);
@@ -221,28 +219,26 @@ returnElementArray(3);
 /*Podrías mostrarlos en el orden inverso?*/
 
 function returnElementArrayReversed(number) {
-	var array = [];
-	for ( var i = 0; i <= 10; i++ ) {
-		array.push(i);
-	}
-	var multByNumber =  array.map(function(element) {
-		return element * number;
-	});
+    var array = [];
+    for (var i = 0; i <= 10; i++) {
+        array.push(i);
+    }
+    var multByNumber = array.map(function(element) {
+        return element * number;
+    });
 
-	var reversedArray = multByNumber.sort(sortElement);
-	return reversedArray;	
+    var reversedArray = multByNumber.sort(sortElement);
+    return reversedArray;
 
-	function sortElement(elementA,elementB){
-		if ( elementA > elementB) {
-			return -1;
-		}
-		else if ( elementA < elementB ) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
-	}
+    function sortElement(elementA, elementB) {
+        if (elementA > elementB) {
+            return -1;
+        } else if (elementA < elementB) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 returnElementArrayReversed(3);
@@ -254,18 +250,17 @@ numbers
 //Que hora es? Declara la hora como número y devuelvela como String
 
 function whatTimeIsIt() {
-	var timeNow = new Date();
-	var hour = timeNow.getHours().toString();
-	var minutes = timeNow.getMinutes().toString();
-	var timeOfTheDay = '';
-	if ( hour < 12 ) {
-		timeOfTheDay = 'morning';
-	}
-	else {
-		timeOfTheDay = 'evening';
-	}
-	var showTime = 'It\'s ' + hour + ':' + minutes + ' of ' + timeOfTheDay;
-	console.log(showTime);
+    var timeNow = new Date();
+    var hour = timeNow.getHours().toString();
+    var minutes = timeNow.getMinutes().toString();
+    var timeOfTheDay = '';
+    if (hour < 12) {
+        timeOfTheDay = 'morning';
+    } else {
+        timeOfTheDay = 'evening';
+    }
+    var showTime = 'It\'s ' + hour + ':' + minutes + ' of ' + timeOfTheDay;
+    console.log(showTime);
 }
 
 whatTimeIsIt();
@@ -273,34 +268,32 @@ whatTimeIsIt();
 //Nono, que hora exactamente? Dime la hora sin minutos
 
 function whatTimeIsItWithoutMin() {
-	var timeNow = new Date();
-	var hour = timeNow.getHours().toString();
-	var timeOfTheDay = '';
-	if ( hour < 12 ) {
-		timeOfTheDay = 'morning';
-	}
-	else {
-		timeOfTheDay = 'evening';
-	}
-	var showTime = 'It\'s ' + hour + ' of ' + timeOfTheDay;
-	console.log(showTime);
+    var timeNow = new Date();
+    var hour = timeNow.getHours().toString();
+    var timeOfTheDay = '';
+    if (hour < 12) {
+        timeOfTheDay = 'morning';
+    } else {
+        timeOfTheDay = 'evening';
+    }
+    var showTime = 'It\'s ' + hour + ' of ' + timeOfTheDay;
+    console.log(showTime);
 }
 
 whatTimeIsItWithoutMin();
 
 //  Ahora, declara tu hora y muéstrala redondeada. --> 10.34 mostrar 11
- 
+
 function roundHour(hour) {
-   var hourToString = hour.toString();
-   var arrayHour = hourToString.split('.');
-   var min = Number(arrayHour[1]);
-   var hourT = Number(arrayHour[0]);
-   if ( min > 30 ) {
-   	return hourT + 1;
-   }
-   else {
-   	return hourT;
-   }
+    var hourToString = hour.toString();
+    var arrayHour = hourToString.split('.');
+    var min = Number(arrayHour[1]);
+    var hourT = Number(arrayHour[0]);
+    if (min > 30) {
+        return hourT + 1;
+    } else {
+        return hourT;
+    }
 }
 
 roundHour(10.30);
@@ -322,45 +315,32 @@ d4) Ahora, intenta multiplicar un número por una string, que devuelve?  NaN
 
 console.log(10*"hour") // ....?!*/
 
-function sum(n1,n2){
-  return n1 + n2;
+function sum(n1, n2) {
+    return n1 + n2;
 }
-function rest(n1,n2){
-  return n1 - n2;
+
+function rest(n1, n2) {
+    return n1 - n2;
 }
-function div(n1,n2){
-  return n1 / n2;
+
+function div(n1, n2) {
+    return n1 / n2;
 }
-function mult(n1,n2){
-  if ( isNumber(n1) && isNumber(n2) ) {
-    return n1 * n2;
-  }
-  else{
-    return undefined;
-  }
-  function isNumber(n){
-    if ( typeof n == 'number') {
-      return true;
+
+function mult(n1, n2) {
+    if (isNumber(n1) && isNumber(n2)) {
+        return n1 * n2;
+    } else {
+        return undefined;
     }
-    else{
-      return false;
+
+    function isNumber(n) {
+        if (typeof n == 'number') {
+            return true;
+        } else {
+            return false;
+        }
     }
-  }
 }
 
-console.log(sum(7,2) + rest(7,2) + div(7,2));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(sum(7, 2) + rest(7, 2) + div(7, 2));

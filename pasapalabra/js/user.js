@@ -10,10 +10,11 @@ var user = (function() {
         startDiv.addEventListener("click", displayName, false);
     };
 
-    var displayName = function() {
-        //   this.value = "FIN";
+    var displayName = function(e) {
+        console.log(e);
         startDiv.removeEventListener("click", displayName, false);
-        //  startDiv.addEventListener("click",finish,false);
+        startDiv.addEventListener("click",core.finish,false);
+        this.value = "FIN";
         var nameBox = document.getElementById("box");
         var name = document.getElementById("name");
         interactions.erase(name);
@@ -23,9 +24,9 @@ var user = (function() {
             if (e.keyCode === 13) {
                 userName = e.target.value;
                 interactions.hide(nameBox);
-                writeQuestion();
+                core.write();
             }
-            preventDef(e);
+            core.prevent(e);
         });
     }
     var addPoints = function() {
@@ -42,6 +43,11 @@ var user = (function() {
         });
     }
 
+    var showUser = function() {
+        var arr = [userName,points];
+        return arr;
+    }
+
     /* var finish = function() {
          fin();
      }*/
@@ -52,6 +58,7 @@ var user = (function() {
         addPoints: addPoints,
         results: addResults,
         userData: userData,
-        start: displayName
+        start: displayName,
+        show: showUser
     };
 })();

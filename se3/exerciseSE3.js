@@ -2,37 +2,35 @@
 
 //a) Primero, creamos una función que nos cree un saludo, pasa tu nombre como parámetro y devuélvelo por la consola.
 
-function  sayHello(myName){
-    console.log('hello ' + myName);//output: 'hello myName'
+function sayHello(myName) {
+    console.log('hello ' + myName); //output: 'hello myName'
 }
-
-
 
 //b) Intenta retornar los valores en lugar de usar console.log
 
-function sayHello2(myName){
+function sayHello2(myName) {
     return 'hello ' + myName; // output: 'hello myName'
 }
 
 //c) Ahora, añade tu edad y concaténala al return
 
-function sayHelloAndAge(name,age) {
+function sayHelloAndAge(name, age) {
     return 'Hello my name is ' + name + ' and my age is ' + age;
 }
 
-sayHelloAndAge('Toni',29);
+sayHelloAndAge('Toni', 29);
 
 //Cual es la diferencia entre console.log() & return?  // console.log es un efecto secundario, y return devuelve
 
 //Read this => http://stackoverflow.com/questions/21020608/difference-between-console-log-and-return-in-javascript
 //d) Iguala tu función a una variable y ejecútala
 
-function sayHelloAndAge(name,age) {
+function sayHelloAndAge(name, age) {
     return 'Hello my name is ' + name + ' and my age is ' + age;
 }
 
 var myFunction = sayHelloAndAge; //output: 'hello myName, you're myAge years old.'
-myFunction('Toni',29);
+myFunction('Toni', 29);
 
 
 
@@ -46,7 +44,7 @@ function myName(name) {
     return name;
 }
 
-function myAge(age){
+function myAge(age) {
     return age;
 }
 
@@ -61,11 +59,11 @@ nameS('Toni ') + age(29);
 
 //e1) Intenta sumarle al resultado de tu segunda funcion, un numero random del 0-10 y conviertelo todo a un solo string.
 
-function myAge(age){
+function myAge(age) {
     return age;
 }
 
-function sumAgeAndRandom(){
+function sumAgeAndRandom() {
     var age = myAge(29);
     var rndN = Math.floor((Math.random() * 10) + 1);
     var sum = age + rndN;
@@ -102,9 +100,9 @@ function main() {
     var name = function() {
         return 'Toni';
     };
-    var age = function(){
+    var age = function() {
         return 29;
-    }; 
+    };
     return name() + ' ' + age();
 }
 
@@ -114,16 +112,16 @@ ese número random será el argumento que se pasará como parámetro a la funci�
 return x + y // output: IronMan 6457689
 http://www.w3schools.com/jsref/jsref_random.asp*/
 
-function main(){
+function main() {
 
-  var name = function() {
+    var name = function() {
         return 'Toni';
     };
-  var rndN = function() {
-     var n = Math.floor((Math.random() * 10000) + 1);
-     return n;
-  };
-   return name() + ' ' + rndN();
+    var rndN = function() {
+        var n = Math.floor((Math.random() * 10000) + 1);
+        return n;
+    };
+    return name() + ' ' + rndN();
 }
 
 main();
@@ -132,22 +130,22 @@ main();
 
 return x + y // output: IronMan 3...Sure you're Tony Stark?*/
 
-function main(){
+function main() {
 
-  var name = function() {
+    var name = function() {
         return 'Toni';
     };
-  var rndNF = function() {
-     var n = Math.floor((Math.random() * 50) + 1);
-     return n;
-  };
-  var rndN = rndNF();
-  var myName = name();
-  if (rndN < 20) {
-    console.log(myName + ' ' + rndN + '...Sure you\'re Tony Ruiz?');
-  } else if (rndN > 20 && rndN < 50) {
-    console.log('Hi ' + myName + ' ' + rndN);
-  }
+    var rndNF = function() {
+        var n = Math.floor((Math.random() * 50) + 1);
+        return n;
+    };
+    var rndN = rndNF();
+    var myName = name();
+    if (rndN < 20) {
+        console.log(myName + ' ' + rndN + '...Sure you\'re Tony Ruiz?');
+    } else if (rndN > 20 && rndN < 50) {
+        console.log('Hi ' + myName + ' ' + rndN);
+    }
 }
 
 main();
@@ -158,46 +156,46 @@ main();
 
 
 
-function main(){
+function main() {
 
-  var name = function() {
+    var name = function() {
         return 'Toni' + '...AKA Son Goku';
     };
-  var rndNF = function() {
-     var n = Math.floor((Math.random() * 50) + 1);
-     return n;
-  };
-  var rndN = rndNF();
-  var myName = name();
-  if (rndN < 20) {
-    console.log(myName + ' ' + rndN + '...Sure you\'re Tony Ruiz?');
-  } else if (rndN > 20 && rndN < 50) {
-    console.log('Hi ' + myName + ' ' + rndN);
-  }
+    var rndNF = function() {
+        var n = Math.floor((Math.random() * 50) + 1);
+        return n;
+    };
+    var rndN = rndNF();
+    var myName = name();
+    if (rndN < 20) {
+        console.log(myName + ' ' + rndN + '...Sure you\'re Tony Ruiz?');
+    } else if (rndN > 20 && rndN < 50) {
+        console.log('Hi ' + myName + ' ' + rndN);
+    }
 }
 
 main();
 //k) Ahora, modifica el return de la función padre para que devuelva sus datos en un mensaje amigable
 
-function main(){
+function main() {
 
-  var name = function() {
+    var name = function() {
         return 'Toni' + '...AKA Son Goku';
     };
-  var rndNF = function() {
-     var n = Math.floor((Math.random() * 50) + 1);
-     return n;
-  };
-  var rndN = rndNF();
-  var myName = name();
-  var x = '';
-  var y = myName;
-  if (rndN < 20) {
-    x = rndN + '...Sure you\'re Tony Ruiz?';
-  } else if (rndN > 20 && rndN < 50) {
-    x = 'Hi ' + myName + ' ' + rndN;
-  }
-  return x + y;
+    var rndNF = function() {
+        var n = Math.floor((Math.random() * 50) + 1);
+        return n;
+    };
+    var rndN = rndNF();
+    var myName = name();
+    var x = '';
+    var y = myName;
+    if (rndN < 20) {
+        x = rndN + '...Sure you\'re Tony Ruiz?';
+    } else if (rndN > 20 && rndN < 50) {
+        x = 'Hi ' + myName + ' ' + rndN;
+    }
+    return x + y;
 }
 
 main();
@@ -205,7 +203,7 @@ main();
 //return x + y // output: The first function returns: 'Tony Stark...aka IRONMAN', The second function returns: '34...Sure you're Tony Stark?' 
 //l) Modifica la primera función y la función padre para, si el parámetro introducido no es tu nombre, no siga con la segunda llamada
 
-function main(name,age) {
+function main(name, age) {
 
     var nameF = function() {
         return (name === 'Toni') ? 'Hi ' + name : name + '...You\'re not IRONMAN!';
@@ -216,15 +214,15 @@ function main(name,age) {
 
     var myName = nameF();
     var myAge = myAgeF();
-    if (myName) { 
-      return myName + ' ' + myAge;
+    if (myName) {
+        return myName + ' ' + myAge;
     } else {
-      return myName;
+        return myName;
     }
-    
+
 }
 
-main('Batman',29);
+main('Batman', 29);
 
 
 

@@ -71,7 +71,6 @@ var interactions = (function() {
 
     }
 
-
     var uploadState = function(g, r, b) {
         green += g;
         red += r;
@@ -100,6 +99,12 @@ var interactions = (function() {
         ranking.sort( (userA,userB) => userB.points > userA.points);
         return ranking;
     }
+
+    var changeValue = function(element,value) {
+    	element.value = value;
+    }
+ 
+   
     return {
         restart: restartPoints,
         upload: uploadState,
@@ -109,7 +114,9 @@ var interactions = (function() {
         display: display,
         hide: hide,
         addClass: addClassLetter,
-        removeClass: removeClass
+        removeClass: removeClass,
+        change: changeValue
+
     };
 
 

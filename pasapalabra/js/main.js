@@ -1,3 +1,4 @@
+
 var collection = [
     { letter: "a", answer: "abducir", status: 0, question: ("CON LA A. Dicho de una supuesta criatura extraterrestre: Apoderarse de alguien") },
     { letter: "b", answer: "ballena", status: 0, question: ("CON LA B. mamífero marino del grupo de los cetáceos que puede medir más de treinta metros de longitud y 150 toneladas de peso") },

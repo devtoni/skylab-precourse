@@ -11,7 +11,9 @@ var user = (function() {
     };
 
     var displayName = function() {
+        //   this.value = "FIN";
         startDiv.removeEventListener("click", displayName, false);
+        //  startDiv.addEventListener("click",finish,false);
         var nameBox = document.getElementById("box");
         var name = document.getElementById("name");
         interactions.erase(name);
@@ -39,6 +41,10 @@ var user = (function() {
             points: points
         });
     }
+
+    /* var finish = function() {
+         fin();
+     }*/
     start();
 
     return {
@@ -49,4 +55,3 @@ var user = (function() {
         start: displayName
     };
 })();
-

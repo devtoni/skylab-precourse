@@ -1,34 +1,38 @@
 var user = (function() {
     "use strict";
-    var startDiv = document.getElementById("startGame");
+
+    var startBtn = document.getElementById("startGame");
     var userData = [];
     var userName = "";
     var points = 0;
 
 
-    var start = function() {
-        startDiv.addEventListener("click", displayName, false);
+    var displayName = function() {
+        let val = this.value;
+        if (val === 'EMPEZAR') {
+            this.value = 'FIN';
+            getName();
+        } else {
+            core.finishByClick();
+        }
     };
 
-    var displayName = function(e) {
-        console.log(e);
-        startDiv.removeEventListener("click", displayName, false);
-        startDiv.addEventListener("click",core.finish,false);
-        this.value = "FIN";
-        var nameBox = document.getElementById("box");
-        var name = document.getElementById("name");
-        interactions.erase(name);
-        interactions.display(nameBox);
-        interactions.foco(name); // mostramos caja
-        name.addEventListener("keydown", function(e) { // cuando presionemos enter en el text input 
+    var getName = function() {
+        const box = document.getElementById("box");
+        const name = document.getElementById("name");
+        interactions.erase(name); // removes previews possible text
+        interactions.display(box); // shows the box to put the name
+        name.focus();
+        name.addEventListener("keydown", function(e) { // when user put Enter
             if (e.keyCode === 13) {
                 userName = e.target.value;
-                interactions.hide(nameBox);
-                core.write();
+                interactions.hide(box); // hiding the box
+                core.start();
             }
             core.prevent(e);
         });
-    }
+    };
+
     var addPoints = function() {
         points++;
     }
@@ -36,6 +40,7 @@ var user = (function() {
     var resetPoints = function() {
         points = 0;
     }
+
     var addResults = function() {
         userData.push({
             user: userName,
@@ -43,22 +48,21 @@ var user = (function() {
         });
     }
 
-    var showUser = function() {
-        var arr = [userName,points];
+    var showCurrentUser = function() {
+        var arr = [userName, points];
         return arr;
     }
 
-    /* var finish = function() {
-         fin();
-     }*/
-    start();
+    // event Listeners
+    startBtn.addEventListener("click", displayName, false);
 
     return {
         resetPoints: resetPoints,
         addPoints: addPoints,
-        results: addResults,
+        addResults: addResults,
         userData: userData,
-        start: displayName,
-        show: showUser
+        displayName: displayName,
+        showCurrentUser: showCurrentUser,
+        getName: getName
     };
 })();

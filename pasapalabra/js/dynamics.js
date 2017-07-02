@@ -6,21 +6,27 @@ var interactions = (function() {
 
 
     var display = function(element) {
-        element.style.display = "flex";
-        element.style.visibility = "visible";
-        element.style.opacity = "1";
+        if (element.classList.contains('hide')) {
+            element.classList.remove('hide');
+            element.classList.add('show');
+        } else {
+            element.classList.add('show');
+        }
+
     };
 
     var hide = function(element) {
-        element.style.display = "none";
-        element.style.visibility = "hidden";
-        element.style.opacity = "0";
+        if (element.classList.contains('show')) {
+            element.classList.remove('show');
+            element.classList.add('hide');
+        } else {
+            element.classList.add('hide');
+        }
     };
 
     var showTable = function() {
-        var table = document.getElementById("table");
-        var tableBox = document.getElementById("tableBox");
-        //var userData = user.userData;
+        const table = document.getElementById("table");
+        const tableBox = document.getElementById("tableBox");
         var userData = sortRanking();
         for (var i = 0; i < userData.length; i++) {
             var row = table.insertRow(i + 1);
@@ -34,33 +40,29 @@ var interactions = (function() {
         display(tableBox);
     };
 
+    // removes the text even if it is an input or an element with innerHTML
     var eraseText = function(element) {
-        if (element.value) {
+        if (element.value || element.innerHTML) {
             element.value = "";
-        } else {
             element.innerHTML = "";
-        }
-    };
-
-    var focusElement = function(element) {
-        element.focus();
+        };
     };
 
     var changeColor = function(element, color) {
-        element.className = color;
-    }
+        element.classList.add(color);
+    };
 
+    // target is the letter we are looking for in the alphabet
     var addClassLetter = function(target, color) {
         target = target.toUpperCase();
-        var letters = document.querySelectorAll(".circle-of-words a");
-        for (let i = 0; i < letters.length; i++) {
-            var letter = letters[i];
+        const letters = Array.from(document.querySelectorAll(".circle-of-words a"));
+        letters.forEach((letter) => {
             if (letter.dataset.letter === target) {
                 removeClass(letter, ['red', 'blue', 'green']);
-                letter.className += " " + color;
+                letter.classList.add(color);
             }
-        }
-    }
+        });
+    };
 
     var removeClass = function(element, classList) {
         classList.forEach(classEl => {
@@ -68,15 +70,14 @@ var interactions = (function() {
                 element.classList.remove(classEl);
             }
         });
-
-    }
+    };
 
     var uploadState = function(g, r, b) {
         green += g;
         red += r;
         blue -= b;
         writePoints();
-    }
+    };
 
     var writePoints = function() {
         var aciertos = document.getElementById("aciertos");
@@ -85,30 +86,30 @@ var interactions = (function() {
         fallos.innerHTML = red;
         var restante = document.getElementById("restante");
         restante.innerHTML = blue;
-    }
+    };
 
     var restartPoints = function() {
         green = 0;
         red = 0;
         blue = 27;
         writePoints();
-    }
+    };
 
     var sortRanking = function() {
         var ranking = user.userData; // array of users 
-        ranking.sort( (userA,userB) => userB.points > userA.points);
+        // sorting the array for higher points
+        ranking.sort((userA, userB) => userB.points > userA.points);
         return ranking;
-    }
+    };
 
-    var changeValue = function(element,value) {
-    	element.value = value;
-    }
- 
-   
+    var changeValue = function(element, value) {
+        element.value = value;
+    };
+
+
     return {
         restart: restartPoints,
         upload: uploadState,
-        foco: focusElement,
         erase: eraseText,
         showTable: showTable,
         display: display,

@@ -98,6 +98,13 @@ td {
 }
 
 
+/* crono */
+
+.crono-timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 /* containers */
 
 .container {
@@ -207,6 +214,20 @@ td {
     height: 400px;
 }
 
+
+/* Dynamic classes */
+
+.show {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
 
 /* position for every letter*/
 

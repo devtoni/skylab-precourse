@@ -1,5 +1,6 @@
 var core = (function() {
     "use strict";
+
     var collection = [
         { letter: "a", answer: "abducir", status: 0, question: ("CON LA A. Dicho de una supuesta criatura extraterrestre: Apoderarse de alguien") },
         { letter: "b", answer: "ballena", status: 0, question: ("CON LA B. mamífero marino del grupo de los cetáceos que puede medir más de treinta metros de longitud y 150 toneladas de peso") },
@@ -31,7 +32,7 @@ var core = (function() {
     ];
 
     var num = 0;
-    var pregunta = document.getElementById("pregunta");
+
     var answer = collection[num].answer;
     var resp = document.getElementById("answer");
     var letter = collection[num].letter;
@@ -41,7 +42,7 @@ var core = (function() {
         if (num < collection.length) {
             checkStat();
         } else {
-            var com = completed();
+            var com = completed(); // only true if every status property in collection is != 0;
             if (com) {
                 fin();
             } else {
@@ -63,8 +64,10 @@ var core = (function() {
 
     // write question
     var writeQuestion = function() {
-        interactions.foco(resp);
+        var resp = document.getElementById("answer");
+        var pregunta = document.getElementById("pregunta");
         pregunta.innerHTML = collection[num].question;
+        resp.focus();
         interactions.erase(resp);
     }
 
@@ -73,16 +76,6 @@ var core = (function() {
         return collection.every((el) => el.status !== 0);
     }
 
-    // get the answer typped by the user
-    resp.addEventListener("keydown", function(e) {
-        if (e.keyCode == 13) {
-            var val = e.target.value;
-            sendAnswer(val);
-            preventDef(e);
-        }
-    }, false);
-
-
     // we prevent the default behaviour because if we don't do that the next description don't appear
     var preventDef = function(event) {
         if (event.keyCode == 13) {
@@ -90,7 +83,7 @@ var core = (function() {
         }
     }
 
-    // send answer normalize the answer to lower case and call check answer
+    // send answer normalized the answer to lower case and call check answer
     var sendAnswer = function(val) {
         val = val.toLowerCase();
         checkAnswer(val);
@@ -107,13 +100,11 @@ var core = (function() {
             interactions.upload(1, 0, 1);
             num++;
             checkNum();
-
         } else if (ans === 'pasapalabra') {
             collection[num].status = 0;
             interactions.addClass(letter, 'blue');
             num++;
             checkNum();
-
         } else {
             collection[num].status = 2;
             interactions.addClass(letter, 'red');
@@ -123,68 +114,89 @@ var core = (function() {
         }
     }
 
+    var start = function() {
+         crono.actOrDeact();
+         writeQuestion();
+    }
     //results push the user name and points to the array userData.
     var resultados = function() {
         user.userData.push([{
             nameU: userName,
             pointsU: points
         }]);
-    }
+    };
 
+    var finishByClick = function() {
+        var [userName, points] = user.showCurrentUser();
+        alert("Vaya, has decidido finalizar antes de tiempo " + userName + ", tus puntos han sido de " + points + ".");
+        var turnToPlay = confirm('Quieres volver a jugar?');
+        if (turnToPlay) {
+            this.value = 'EMPEZAR';
+            restart();
+        } else {
+            alert('Hasta otra!!');
+        }
+    };
+
+    var finCrono = function() {
+        crono.actOrDeact();
+        user.addResults();
+        var volver = confirm('Vaya!!, se acabó el tiempo, volver a jugar?');
+        if (volver) {
+            restart();
+        } else {
+            interactions.showTable();
+            alert('Hasta otra!');
+        }
+    }
 
     var fin = function() {
-        var event = [...arguments][0];
-        if (event) {
-            if (event.target.value === "FIN") {
-                restart();
-                var userS = user.show();
-                alert("Vaya, has decidido finalizar antes de tiempo " + userS[0] + ", tus puntos han sido de " + userS[1] + ".");
-                interactions.change(event.target, "EMPEZAR");
-                var startDiv = document.getElementById("startGame");
-                startDiv.addEventListener("click",user.start,false);
-
-            }
+        user.addResults(); // add results
+        var volver = confirm("volver a jugar?");
+        if (volver) {
+            restart();
         } else {
-            user.results();
-            var volver = confirm("volver a jugar?");
-            if (volver) {
-                 var startDiv = document.getElementById("startGame");
-                 if (startDiv.value = "EMPEZAR") {
-                    startDiv.value = "FIN";
-                 } else {
-                    startDiv.value = "EMPEZAR";
-                 }
-                 
-                restart();
-            } else {
-                interactions.showTable();
-            }
+            interactions.showTable();
+            alert('Hasta otra!');
         }
+    };
 
-    }
-
-    var restart = function() {
-         var startDiv = document.getElementById("startGame");
-        // startDiv.value = "EMPEZAR";
-        // turn to 0 the status and other variables
+    var status0 = function() {
         for (var i = 0; i < collection.length; i++) {
             collection[i].status = 0;
         }
-        var letters = document.querySelectorAll(".circle-of-words a");
-        for (let j = 0; j < collection.length; j++) {
-            interactions.removeClass(letters[j], ['red', 'blue', 'green']);
-        }
+    }
+
+    var restart = function() {
+        status0();
+        var letters = Array.from(document.querySelectorAll(".circle-of-words a"));
+        letters.forEach(letter => {
+            interactions.removeClass(letter, ['red', 'blue', 'green']);
+        });
         num = 0;
         user.resetPoints();
+        user.getName();
         interactions.restart();
-        user.start();
-        writeQuestion(); // call again for the first letter
+        start(); // call again for the first letter
     }
+
+
+    // get the answer typped by the user
+    resp.addEventListener("keydown", function(e) {
+        if (e.keyCode == 13) {
+            var val = e.target.value;
+            sendAnswer(val);
+            preventDef(e);
+        }
+    }, false);
 
     return {
         write: writeQuestion,
         prevent: preventDef,
         finish: fin,
+        finishByClick: finishByClick,
+        finishByCrono: finCrono,
+        start: start
     }
 
 })();

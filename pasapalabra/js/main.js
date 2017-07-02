@@ -115,10 +115,10 @@ var core = (function() {
     }
 
     var start = function() {
-         crono.actOrDeact();
-         writeQuestion();
-    }
-    //results push the user name and points to the array userData.
+            crono.actOrDeact();
+            writeQuestion();
+        }
+        //results push the user name and points to the array userData.
     var resultados = function() {
         user.userData.push([{
             nameU: userName,

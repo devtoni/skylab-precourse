@@ -1,7 +1,7 @@
 var crono = (function() {
 
     // 130 seconds 
-    var time = 5;
+    var time = 130;
     var timer = 0;
 
     // while time is bigger than 0, we discount with the function Setinterval
@@ -10,6 +10,7 @@ var crono = (function() {
             time--;
         } else {
             core.finishByCrono();
+            time = 130;
         }
     };
 
@@ -31,10 +32,10 @@ var crono = (function() {
             clearInterval(timer);
             timer = 0;
         } else {
-            if (time == 5) {
+            if (time == 130) {
                 timer = setInterval(counterDown, 1000);
             } else {
-                time = 5;
+                time = 130;
                 showCrono();
             }
         }

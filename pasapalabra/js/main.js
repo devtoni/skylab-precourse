@@ -114,11 +114,13 @@ var core = (function() {
         }
     }
 
+    // start the crono and call for the first question
     var start = function() {
             crono.actOrDeact();
             writeQuestion();
         }
-        //results push the user name and points to the array userData.
+
+    //results push the user name and points to the array userData.
     var resultados = function() {
         user.userData.push([{
             nameU: userName,
@@ -126,6 +128,7 @@ var core = (function() {
         }]);
     };
 
+    // when u finish by click the user score doesn't show on the ranking, we alert with the points and no more
     var finishByClick = function() {
         var [userName, points] = user.showCurrentUser();
         alert("Vaya, has decidido finalizar antes de tiempo " + userName + ", tus puntos han sido de " + points + ".");
@@ -148,7 +151,7 @@ var core = (function() {
             interactions.showTable();
             alert('Hasta otra!');
         }
-    }
+    };
 
     var fin = function() {
         user.addResults(); // add results
@@ -165,7 +168,7 @@ var core = (function() {
         for (var i = 0; i < collection.length; i++) {
             collection[i].status = 0;
         }
-    }
+    };
 
     var restart = function() {
         status0();
@@ -178,7 +181,7 @@ var core = (function() {
         user.getName();
         interactions.restart();
         start(); // call again for the first letter
-    }
+    };
 
 
     // get the answer typped by the user
@@ -195,8 +198,8 @@ var core = (function() {
         prevent: preventDef,
         finish: fin,
         finishByClick: finishByClick,
-        finishByCrono: finCrono,
+       finishByCrono: finCrono,
         start: start
-    }
+    };
 
 })();

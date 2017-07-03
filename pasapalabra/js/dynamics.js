@@ -117,7 +117,6 @@ var interactions = (function() {
         addClass: addClassLetter,
         removeClass: removeClass,
         change: changeValue
-
     };
 
 

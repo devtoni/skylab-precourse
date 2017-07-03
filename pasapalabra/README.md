@@ -9,3 +9,9 @@ In this project we have had to apply the basics learned in the modules of Javasc
 
 You can test the game here -> https://devtoni.github.io/skylab-precourse/pasapalabra/
 
+#### TO-DO
+
+- Need to fixed some bugs in crono.js
+- Factor code
+- Add responsive design
+
